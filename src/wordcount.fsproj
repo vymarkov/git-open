@@ -6,12 +6,15 @@
 
   <ItemGroup>
     <Compile Include="Fable.Import.VSCode.fs" />
+    <Compile Include="Fable.Import.GitUrlParse.fs" />
+    <Compile Include="Git.fs" />
     <Compile Include="extension.fs" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Fable.Core" Version="3.2.3" />
     <PackageReference Include="Fable.Node" Version="1.2.0" />
+    <PackageReference Include="Fable.Promise" Version="2.2.0" />
   </ItemGroup>
 
 </Project>

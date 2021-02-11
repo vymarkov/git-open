@@ -1,12 +1,15 @@
 {
-  "name": "wordcount",
-  "displayName": "WordCount",
-  "description": "Example VS Code Extension with Fable",
+  "publisher": "vymarkov",
+  "name": "gitopen",
+  "displayName": "Git Open",
+  "description": "Open the repo website (GitHub, GitLab, Bitbucket) in your browser",
   "version": "0.1.0",
-  "publisher": "me",
-  "license": "Unlicense",
-  "private": true,
+  "license": "MIT",
   "main": "./out/extension",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
   "engines": {
     "vscode": "^1.5.0"
   },
@@ -14,15 +17,35 @@
     "Other"
   ],
   "activationEvents": [
-    "onLanguage:markdown"
+    "onStartupFinished",
+    "onCommand:gitopen.openRepo"
   ],
   "scripts": {
+    "vscode:prepublish": "npm run build",
     "build": "dotnet fable src/ --run rollup -c",
     "dev": "dotnet fable watch src/ --run rollup -c -w"
   },
   "dependencies": {
+    "git-url-parse": "^11.4.4",
+    "rollup": "^2.38.2"
+  },
+  "devDependencies": {
     "@rollup/plugin-commonjs": "^17.1.0",
     "@rollup/plugin-node-resolve": "^11.1.1",
-    "rollup": "^2.38.2"
-  }
+    "@types/git-url-parse": "^9.0.0",
+    "ovsx": "0.1.0-next.a9154dc",
+    "ts2fable": "^0.7.1",
+    "vsce": "^1.85.0"
+  },
+  "contributes": {
+    "commands": [
+      {
+        "command": "gitopen.openRepo",
+        "title": "Git: Open the repo website (GitHub, GitLab, Bitbucket) in your browser"
+      }
+    ]
+  },
+  "extensionDependencies": [
+    "vscode.git"
+  ]
 }

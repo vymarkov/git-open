@@ -935,6 +935,9 @@ module vscode =
         static member onDidStartDebugSession with get() : Event<DebugSession> = failwith "JS only"
         static member startDebugging(folder: WorkspaceFolder,  nameOrConfiguration: U2<string, obj>) : Promise<bool>= failwith "JS only"
 
+    type [<Import("env","vscode")>] env =
+        static member openExternal(url: string): unit = failwith "JS only"
+
     type [<Import("window","vscode")>] window =
         static member activeTextEditor with get(): TextEditor = failwith "JS only" and set(v: TextEditor): unit = failwith "JS only"
         static member visibleTextEditors with get(): ResizeArray<TextEditor> = failwith "JS only" and set(v: ResizeArray<TextEditor>): unit = failwith "JS only"
@@ -991,6 +994,7 @@ module vscode =
         static member saveAll(?includeUntitled: bool): Promise<bool> = failwith "JS only"
         static member applyEdit(edit: WorkspaceEdit): Promise<bool> = failwith "JS only"
         static member openTextDocument(uri: Uri): Promise<TextDocument> = failwith "JS only"
+        static member getWorkspaceFolder(uri: Uri): WorkspaceFolder = failwith "JS only"
         static member openTextDocument(fileName: string): Promise<TextDocument> = failwith "JS only"
         static member getConfiguration(?section: string, ?resource: Uri): WorkspaceConfiguration = failwith "JS only"
         static member registerTextDocumentContentProvider(selector : DocumentSelector, provider : TextDocumentContentProvider ) : Disposable = failwith "JS only"
