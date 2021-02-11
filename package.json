@@ -1,4 +1,5 @@
 {
+  "preview": true,
   "publisher": "vymarkov",
   "name": "gitopen",
   "displayName": "Git Open",
@@ -8,7 +9,7 @@
   "main": "./out/extension",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/vymarkov/git-open"
   },
   "engines": {
     "vscode": "^1.5.0"
